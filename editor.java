@@ -14,24 +14,39 @@ class editor extends JFrame implements ActionListener {
 	// Frame 
 	JFrame f; 
 
+	
+
 	// Constructor 
 	editor() 
-	{ 
-		// Create a frame 
+	{  
+
+		
 		f = new JFrame("Borax Code"); 
+
+		ImageIcon img = new ImageIcon("text-editor-icon.png");
+		f.setIconImage(img.getImage());
+
+
 
 		try { 
 			// Set metl look and feel 
-			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel"); //javax.swing.plaf.metal.MetalLookAndFeel
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel"); //javax.swing.plaf.windows.WindowsLookAndFeel
  
 		} 
 		catch (Exception e) { 
 		} 
 
 		// Text component 
+		
 		t = new JTextArea(); 
 
-		t.setFont(t.getFont().deriveFont(20f)); 
+		t.setFont(t.getFont().deriveFont(20f));
+
+		
+
+		JScrollPane scroll = new JScrollPane (t);
+		scroll.setPreferredSize(t.getPreferredSize());
+    	scroll.setVerticalScrollBarPolicy ( ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS );
 
 
 		// Create a menubar 
@@ -40,7 +55,7 @@ class editor extends JFrame implements ActionListener {
 		// Create a menu for menu 
 		JMenu m1 = new JMenu("File"); 
 
-		m1.setPreferredSize(new Dimension(100, m1.getPreferredSize().height));
+		m1.setPreferredSize(new Dimension(80, m1.getPreferredSize().height));
 
         
 
@@ -67,7 +82,7 @@ class editor extends JFrame implements ActionListener {
 
 		// Create amenu for menu 
 		JMenu m2 = new JMenu("Edit"); 
-		m2.setPreferredSize(new Dimension(100, m2.getPreferredSize().height));
+		m2.setPreferredSize(new Dimension(80, m2.getPreferredSize().height));
 
 
 		// Create menu items 
@@ -77,9 +92,7 @@ class editor extends JFrame implements ActionListener {
 
 
 
-		// mi4.setPreferredSize(new Dimension(70, mi4.getPreferredSize().height));
-		// mi5.setPreferredSize(new Dimension(70, mi5.getPreferredSize().height));
-		// mi6.setPreferredSize(new Dimension(70, mi6.getPreferredSize().height));
+		
 
 		// Add action listener 
 		mi4.addActionListener(this); 
@@ -95,7 +108,7 @@ class editor extends JFrame implements ActionListener {
 
 		JMenu m3 = new JMenu("About"); 
 		m3.addActionListener(this);
-		m3.setPreferredSize(new Dimension(100, m3.getPreferredSize().height));
+		m3.setPreferredSize(new Dimension(80, m3.getPreferredSize().height));
 
 		JMenuItem ma = new JMenuItem("About"); 
 		ma.addActionListener(this);
@@ -245,6 +258,8 @@ class editor extends JFrame implements ActionListener {
 			f.dispatchEvent(new WindowEvent(f, WindowEvent.WINDOW_CLOSING));
 
 		} 
+
+		
 	} 
 
 	// Main class 
