@@ -103,20 +103,6 @@ class editor extends JFrame implements ActionListener {
 		m2.add(mi5); 
 		m2.add(mi6); 
 
-
-
-
-		JMenu m3 = new JMenu("About"); 
-		m3.addActionListener(this);
-		m3.setPreferredSize(new Dimension(80, m3.getPreferredSize().height));
-
-		JMenuItem ma = new JMenuItem("About"); 
-		ma.addActionListener(this);
-		m3.add(ma);
-
-
-
-
 		JMenuItem mc = new JMenuItem("Close"); 
 
 		
@@ -126,7 +112,6 @@ class editor extends JFrame implements ActionListener {
 
 		mb.add(m1); 
 		mb.add(m2); 
-		mb.add(m3);
 		mb.add(mc); 
 
 		f.setJMenuBar(mb); 
@@ -238,21 +223,7 @@ class editor extends JFrame implements ActionListener {
 		else if (s.equals("New")) { 
 			t.setText(""); 
 		} 
-		else if(s.equals("About"))
-		{
-
-
-			try {
-			 JDialog d = new JDialog(f, "About"); 
-             JLabel l = new JLabel("We are Programmers Gateway. Welcome to a revolutionary Text Editor, Borax Code. Visit us at"+
-			 "Website: https://programmersgateway.github.io/ "); 
-            d.add(l); 
-            d.setSize(500, 500); 
-            d.setVisible(true); 
-			} catch (Exception ex) {
-				ex.printStackTrace();
-			}
-		}
+		
 		else if (s.equals("Close")) { 
 			// f.setVisible(false); 
 			f.dispatchEvent(new WindowEvent(f, WindowEvent.WINDOW_CLOSING));
